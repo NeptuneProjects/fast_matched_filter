@@ -3,16 +3,13 @@ maindir=fast_matched_filter
 srcdir=$(maindir)/src
 libdir=$(maindir)/lib
 
-all:
-	$(warning Building in directory $(maindir))
-	$(warning Source directory $(srcdir))
-	$(warning Library directory $(libdir))
-
 CC=gcc
 NVCC=nvcc
 
 all: $(libdir)/matched_filter_GPU.so $(libdir)/matched_filter_CPU.so
-python_cpu: $(libdir)/matched_filter_CPU.so
+python_cpu:
+	@echo "STDOUT: Building in directory $(libdir)"
+	$(libdir)/matched_filter_CPU.so
 python_gpu: $(libdir)/matched_filter_GPU.so 
 .SUFFIXES: .c .cu
 
