@@ -14,11 +14,11 @@ class FMFExtension(Extension):
 
 class FastMatchedFilterBuild(build_ext):
     def run(self) -> None:
-        print("*" * 40)
-        print(Path.cwd())
-        print(Path(__file__))
-        lib_dir = Path("fast_matched_filter/lib")
-        lib_dir.mkdir(parents=True, exist_ok=True)
+        # print("*" * 40)
+        # print(Path.cwd())
+        # print(Path(__file__))
+        # lib_dir = Path("fast_matched_filter/lib")
+        # lib_dir.mkdir(parents=True, exist_ok=True)
 
         commands = ["python_cpu", "python_gpu"]
         for command in commands:
