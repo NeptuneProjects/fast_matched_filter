@@ -3,6 +3,11 @@ maindir=fast_matched_filter
 srcdir=$(maindir)/src
 libdir=$(maindir)/lib
 
+all:
+	$(warning Building in directory $(maindir))
+	$(warning Source directory $(srcdir))
+	$(warning Library directory $(libdir))
+
 CC=gcc
 NVCC=nvcc
 
