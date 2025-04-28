@@ -1,0 +1,5 @@
+include Makefile
+include README.md
+include LICENSE
+include build_ext.py
+recursive-include fast_matched_filter *
