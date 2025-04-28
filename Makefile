@@ -1,5 +1,5 @@
 # DIRECTORIES
-maindir=fast_matched_filter
+maindir=$(PYTHON_BUILD_LIB)
 srcdir=$(maindir)/src
 libdir=$(maindir)/lib
 

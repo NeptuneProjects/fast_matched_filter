@@ -20,8 +20,10 @@ class FastMatchedFilterBuild(_build_ext):
         # lib_dir = Path("fast_matched_filter/lib")
         # lib_dir.mkdir(parents=True, exist_ok=True)
 
+        python_build_lib = self.build_lib
+
         commands = ["python_cpu", "python_gpu"]
         for command in commands:
-            ret = subprocess.call(["make", command])
+            ret = subprocess.call(["make", command, f"PYTHON_BUILD_LIB={python_build_lib}"])
             if ret != 0:
                 raise OSError(f"Unable to compile {command} code.")
