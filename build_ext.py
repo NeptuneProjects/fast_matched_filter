@@ -3,7 +3,7 @@
 
 from pathlib import Path
 from setuptools import Extension
-from setuptools.command.build_ext import build_ext
+from setuptools.command.build_ext import build_ext as _build_ext
 import subprocess
 
 
@@ -12,7 +12,7 @@ class FMFExtension(Extension):
         Extension.__init__(self, name=name, sources=sources)
 
 
-class FastMatchedFilterBuild(build_ext):
+class FastMatchedFilterBuild(_build_ext):
     def run(self) -> None:
         # print("*" * 40)
         # print(Path.cwd())
