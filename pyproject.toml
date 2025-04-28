@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=74.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "FastMatchedFilter"
+version = "1.5.0"
+description = "Fast time-domain normalised cross-correlation for CPU & GPU"
+readme = "README.md"
+license = {text = "GPL"}
+authors = [
+    {name = "William Frank" },
+    {name = "Eric Beauce" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Seismology",
+]
+urls = {Homepage = "https://github.com/beridel/fast_matched_filter"}
+requires-python = ">=2.7"
+dependencies = [
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=2.0.0"]
+
+[tool.setuptools]
+packages = ["fast_matched_filter"]
+include-package-data = true
+zip-safe = false
+ext-modules = [
+    {name = "fast_matched_filter.lib.matched_filter_CPU", sources = [] },
+    {name = "fast_matched_filter.lib.matched_filter_GPU", sources = []},
+]
+
+[tool.setuptools.package-data]
+"*" = ["*"]
+
+[tool.setuptools.cmdclass]
+build_ext = "build_ext.FastMatchedFilterBuild"
