@@ -3,6 +3,8 @@ maindir=fast_matched_filter
 srcdir=$(maindir)/src
 libdir=$(maindir)/lib
 
+echo "Building fast_matched_filter in $(maindir) directory"
+
 CC=gcc
 NVCC=nvcc
 
