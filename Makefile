@@ -26,10 +26,14 @@ matlab: $(maindir)/matched_filter.$(mex_extension) $(maindir)/matched_filter_pre
 # GPU FLAGS
 COPTIMFLAGS_GPU=-O3
 CFLAGS_GPU=-Xcompiler "-fopenmp -fPIC -march=native -ftree-vectorize" -Xlinker -lgomp
-ARCHFLAG=-gencode arch=compute_35,code=sm_35\
-         -gencode arch=compute_70,code=sm_70\
-         -gencode arch=compute_75,code=sm_75\
-         -gencode arch=compute_80,code=sm_80
+ARCHFLAG=-gencode=arch=compute_52,code=sm_52\
+  			-gencode arch=compute_60,code=sm_60\
+  			-gencode arch=compute_61,code=sm_61\
+  			-gencode arch=compute_70,code=sm_70\
+  			-gencode arch=compute_75,code=sm_75\
+  			-gencode arch=compute_80,code=sm_80\
+  			-gencode arch=compute_90,code=sm_90\
+  			-gencode arch=compute_90,code=compute_90
 LDFLAGS_GPU=--shared
 
 # CPU FLAGS
